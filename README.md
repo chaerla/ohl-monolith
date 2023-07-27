@@ -5,10 +5,6 @@ This is a monolith web-app for OHL LABPRO 2023. This service fepends on this [ba
 ## Author
 **13521044 Rachel Gabriela Chen**
 
-## Initialization
-
-- Copy `.env.example` into `.env` and fill with your local env variables. The API_URL variable is the URL where the backend service is running.
-
 ## Installation
 
 ```bash
@@ -20,17 +16,37 @@ $ composer install
 ### Run the [API](https://github.com/chaerla/be-single-service) service
 
 ### local
+- Copy `.env.local.example` into `.env` and fill with your local env variables. The API_URL variable is the URL where the backend service is running.
 ```bash
 # development
 $ npm run dev #to pack the frontend assets
-$ php artisan serve
+$ php artisan serve --env=local
 ```
 
 ### with docker
+- Copy `.env.sail.example` into `.env` and fill with your local env variables. The API_URL variable is the URL where the backend service is running.
 ```bash
 $ npm run dev #to pack the frontend assets
 $ ./vendor/bin/sail up
 ```
+
+### Register
+![image](https://github.com/chaerla/ohl-monolith/assets/91037907/9b9acbf0-15df-4e4b-9e8f-e4dfea6bbaef)
+
+### Login
+
+### Dashboard
+![image](https://github.com/chaerla/ohl-monolith/assets/91037907/c076d20e-ee58-4725-a076-8653779feba9)
+
+### Buy Item
+![image](https://github.com/chaerla/ohl-monolith/assets/91037907/98de1473-0ee6-4669-a528-fe526fc84ce8)
+
+### Purchase History
+![image](https://github.com/chaerla/ohl-monolith/assets/91037907/903add54-13f9-421b-b991-9cb7c903c646)
+
+
+
+
 
 ## Design Patterns
 ### Model-View-Controller (MVC) pattern:
