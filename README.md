@@ -17,6 +17,8 @@ $ composer install
 
 ## Running the app
 
+### Run the [API](https://github.com/chaerla/be-single-service) service
+
 ### local
 ```bash
 # development
