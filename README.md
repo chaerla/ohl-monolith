@@ -61,18 +61,19 @@ The MVC pattern is the core architectural design pattern in Laravel. It helps in
 - mysql
 
 ## Endpoints
-### API
-#### auth/login: POST
-#### auth/register: POST
-#### auth/logout: POST
-#### auth/refresh: POST
-#### buy-item: POST
-#### invoices: POST
-
-### Frontend
-#### / : GET
-#### item/{id} : GET
-#### /purchase-history : GET
+| ENDPOINT          | METHOD |
+|-------------------|--------|
+| /auth/login       | POST   |
+| /auth/register    | POST   |
+| /auth/logout      | POST   |
+| /auth/refresh     | POST   |
+| /buy-item         | POST   |
+| /invoices         | GET    |
+| /                 | GET    |
+| /login            | GET    |
+| /register         | GET    |
+| /item/:id         | GET    |
+| /purchase-history | GET    |
 
 ## Bonus
 ### B06 - Responsive Layout
