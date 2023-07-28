@@ -1,66 +1,80 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Description
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is a monolith web-app for OHL LABPRO 2023. This service fepends on this [backend service](https://github.com/chaerla/be-single-service) app. 
 
-## About Laravel
+## Author
+**13521044 Rachel Gabriela Chen**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Installation
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```bash
+$ composer install
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Running the app
 
-## Learning Laravel
+### Run the [API](https://github.com/chaerla/be-single-service) service
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### local
+- Copy `.env.local.example` into `.env` and fill with your local env variables. The API_URL variable is the URL where the backend service is running.
+```bash
+# development
+$ npm run dev #to pack the frontend assets
+$ php artisan serve --env=local
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### with docker
+- Copy `.env.sail.example` into `.env` and fill with your local env variables. The API_URL variable is the URL where the backend service is running.
+```bash
+$ npm run dev #to pack the frontend assets
+$ ./vendor/bin/sail up
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Register
+![image](https://github.com/chaerla/ohl-monolith/assets/91037907/9b9acbf0-15df-4e4b-9e8f-e4dfea6bbaef)
 
-## Laravel Sponsors
+### Login
+![image](https://github.com/chaerla/ohl-monolith/assets/91037907/7d4b2a00-8992-4d9f-adcf-13b26ef8e241)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Dashboard
+![image](https://github.com/chaerla/ohl-monolith/assets/91037907/c076d20e-ee58-4725-a076-8653779feba9)
 
-### Premium Partners
+### Buy Item
+![image](https://github.com/chaerla/ohl-monolith/assets/91037907/98de1473-0ee6-4669-a528-fe526fc84ce8)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Purchase History
+![image](https://github.com/chaerla/ohl-monolith/assets/91037907/903add54-13f9-421b-b991-9cb7c903c646)
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+## Design Patterns
+### Model-View-Controller (MVC) pattern:
+The MVC pattern is the core architectural design pattern in Laravel. It helps in separating the application logic into tModel, View, Controller
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Tech Stack
+- Laravel Framework 10.15.0
+- Bootstrap
+- JQuery
+- TailwindCSS
+- mysql
 
-## License
+## Endpoints
+| ENDPOINT          | METHOD |
+|-------------------|--------|
+| /auth/login       | POST   |
+| /auth/register    | POST   |
+| /auth/logout      | POST   |
+| /auth/refresh     | POST   |
+| /buy-item         | POST   |
+| /invoices         | GET    |
+| /                 | GET    |
+| /login            | GET    |
+| /register         | GET    |
+| /item/:id         | GET    |
+| /purchase-history | GET    |
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Bonus
+### B06 - Responsive Layout
+
