@@ -24,7 +24,8 @@ $ php artisan serve --env=local
 ```
 
 ### with docker
-- Copy `.env.sail.example` into `.env` and fill with your local env variables. The API_URL variable is the URL where the backend service is running.
+- Has to be run via wsl/linux
+- Copy `.env.sail.example` into `.env`. Modify only the API_URL. If running via wsl, the host should be windows' IP. 
 ```bash
 $ npm run dev #to pack the frontend assets
 $ ./vendor/bin/sail up
