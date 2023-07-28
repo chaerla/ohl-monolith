@@ -20,7 +20,8 @@ $ composer install
 ```bash
 # development
 $ npm run dev #to pack the frontend assets
-$ php artisan serve --env=local
+$ php artisan migrate
+$ php artisan serve
 ```
 
 ### with docker
@@ -29,6 +30,7 @@ $ php artisan serve --env=local
 ```bash
 $ npm run dev #to pack the frontend assets
 $ ./vendor/bin/sail up
+$ ./vendor/bin/sail artisan migrate
 ```
 
 ### Register
