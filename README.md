@@ -29,7 +29,7 @@ $ php artisan serve
 - Copy `.env.sail.example` into `.env`. Modify only the API_URL. If running via wsl, the host should be windows' IP. 
 ```bash
 $ npm run dev #to pack the frontend assets
-$ ./vendor/bin/sail up
+$ ./vendor/bin/sail up -d
 $ ./vendor/bin/sail artisan migrate
 ```
 
