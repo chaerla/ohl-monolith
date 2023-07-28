@@ -1,6 +1,5 @@
 <script>
     $(document).ready(function() {
-        console.log('asklkls');
         $('#buy-item-form').submit(async function(event) {
             event.preventDefault();
             const formData = new FormData(this);

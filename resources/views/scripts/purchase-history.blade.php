@@ -40,8 +40,6 @@
                 const data = response.data.data;
                 renderInvoices(data);
             })
-            .catch(function(error) {
-                console.log(error);
-            });
+            .catch(function(error) {});
     });
 </script>

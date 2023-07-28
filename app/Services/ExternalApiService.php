@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Support\Collection;
@@ -19,31 +20,39 @@ class ExternalApiService
 
     public function getAllItems()
     {
-        $response = Http::get($this->api_url . '/barang');
-        if ($response->successful() && $response['status'] === 'success') {
-            return collect($response['data']);
+        try {
+            $response = Http::get($this->api_url . '/barang');
+            if ($response->successful() && $response['status'] === 'success') {
+                return collect($response['data']);
+            }
+        } catch (Exception $e) {
+            Log::error('API Request Exception: ' . $e->getMessage());
         }
         return collect();
     }
 
     public function getItemById($id)
     {
-        $url = $this->api_url . '/barang/' . $id;
-        $response = Http::get($url);
-        if ($response->successful() && $response['status'] === 'success') {
-            return collect($response['data']);
+        try {
+            $url = $this->api_url . '/barang/' . $id;
+            $response = Http::get($url);
+            if ($response->successful() && $response['status'] === 'success') {
+                return collect($response['data']);
+            }
+        } catch (Exception $e) {
+            Log::error('API Request Exception: ' . $e->getMessage());
         }
         return collect();
     }
 
     public function buyItem($id, $quantity)
     {
-        $url = $this->api_url . '/barang/buy/' . $id;
-        $client = new Client([
-            'headers' => ['Content-Type' => 'application/json']
-        ]);
 
         try {
+            $url = $this->api_url . '/barang/buy/' . $id;
+            $client = new Client([
+                'headers' => ['Content-Type' => 'application/json']
+            ]);
             $quantity = (int)$quantity;
             $response = $client->post($url, [
                 'json' => [
@@ -51,7 +60,6 @@ class ExternalApiService
                 ]
             ]);
         } catch (RequestException $e) {
-            // Log the error or handle it as needed
             Log::error('API Request Exception: ' . $e->getMessage());
         }
     }
